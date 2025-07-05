@@ -11,7 +11,7 @@ function App() {
   const handleFormSubmit = async (formData) => {
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:5000/business-data", formData);
+      const res = await axios.post("https://local-business-dashboard-backend-1.onrender.com/business-data", formData);
       setBusinessData({ ...formData, ...res.data });
     } catch (err) {
       alert("Failed to fetch business data.");
@@ -22,7 +22,7 @@ function App() {
 
   const handleRegenerate = async (name, location) => {
     try {
-      const res = await axios.get("http://localhost:5000/regenerate-headline", {
+      const res = await axios.get("https://local-business-dashboard-backend-1.onrender.com/regenerate-headline", {
         params: { name, location },
       });
       setBusinessData((prev) => ({
